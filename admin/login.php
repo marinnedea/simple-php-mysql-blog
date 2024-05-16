@@ -1,37 +1,31 @@
-<?php
-session_start();
-require '../includes/config.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $stmt = $db->prepare("SELECT * FROM users WHERE username=?");
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    if (password_verify($password, $user['password'])) {
-        $_SESSION['loggedin'] = true;
-        header('Location: admin.php');
-    } else {
-        echo "Invalid username or password";
-    }
-
-    $stmt->close();
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-    <form method="post">
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Login">
-    </form>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Admin Panel</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="login.php">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <form method="post">
+            Username: <input type="text" name="username"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <footer>
+        <p>Admin Panel &copy; 2024</p>
+    </footer>
 </body>
 </html>
