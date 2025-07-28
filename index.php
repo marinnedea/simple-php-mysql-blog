@@ -1,8 +1,10 @@
 <?php
 require 'includes/config.php';
 
+// Fetch categories and posts. Although no user input is involved here,
+// you could also convert these to prepared statements if desired.
 $categories = $db->query("SELECT * FROM categories");
-$posts = $db->query("SELECT * FROM posts ORDER BY date DESC");
+$posts      = $db->query("SELECT * FROM posts ORDER BY date DESC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,17 +29,22 @@ $posts = $db->query("SELECT * FROM posts ORDER BY date DESC");
         <h1>Blog Posts</h1>
         <h2>Categories</h2>
         <?php while ($cat = $categories->fetch_assoc()): ?>
-            <a href="category.php?id=<?php echo $cat['id']; ?>"><?php echo $cat['name']; ?></a><br>
+            <a href="category.php?id=<?php echo $cat['id']; ?>">
+                <?php echo htmlspecialchars($cat['name']); ?>
+            </a><br>
         <?php endwhile; ?>
+
         <h2>All Posts</h2>
         <?php while ($row = $posts->fetch_assoc()): ?>
-            <h2><a href="view_post.php?id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a></h2>
+            <h2><a href="view_post.php?id=<?php echo $row['id']; ?>">
+                <?php echo htmlspecialchars($row['title']); ?>
+            </a></h2>
             <p><?php echo htmlspecialchars($row['content']); ?></p>
             <p>Posted on: <?php echo $row['date']; ?></p>
         <?php endwhile; ?>
     </div>
     <footer>
-        <p>My Blog &copy; 2024</p>
+        <p>My Blog © 2024</p>
     </footer>
 </body>
 </html>
