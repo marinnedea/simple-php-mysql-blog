@@ -44,6 +44,13 @@ define('SITE_FAVICON', '');
 
 
 // ============================================================
+// Homepage category chips — set to false to hide the
+// "Browse by category" section on the homepage.
+// ============================================================
+define('SHOW_CATEGORY_CHIPS', true);
+
+
+// ============================================================
 // TinyMCE — get a free API key at https://www.tiny.cloud/
 // Replace 'no-api-key' below with your key to remove the
 // "This domain is not registered" notification.

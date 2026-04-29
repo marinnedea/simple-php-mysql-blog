@@ -152,11 +152,25 @@ a.btn-back:hover {
 }
 
 /* ── Category chips (public) ──────────────────────────────── */
+.category-chips-section {
+    margin: 24px 0 8px;
+}
+
+.category-chips-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
 .categories {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 16px 0 24px;
+    margin: 0 0 16px;
 }
 
 .categories a {

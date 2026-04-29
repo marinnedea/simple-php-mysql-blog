@@ -14,11 +14,16 @@ $posts = $db->query("
 require 'includes/header.php';
 ?>
     <div class="container">
-        <div class="categories">
-            <?php while ($cat = $categories->fetch_assoc()): ?>
-                <a href="category.php?id=<?= $cat['id'] ?>"><?= htmlspecialchars($cat['name']) ?></a>
-            <?php endwhile; ?>
-        </div>
+        <?php if (SHOW_CATEGORY_CHIPS && $categories->num_rows > 0): ?>
+            <div class="category-chips-section">
+                <span class="category-chips-label">Browse by category</span>
+                <div class="categories">
+                    <?php while ($cat = $categories->fetch_assoc()): ?>
+                        <a href="category.php?id=<?= $cat['id'] ?>"><?= htmlspecialchars($cat['name']) ?></a>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <?php if ($posts->num_rows === 0): ?>
             <p>No posts yet.</p>
