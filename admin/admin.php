@@ -20,6 +20,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <nav>
                 <ul>
                     <li><a href="admin.php">Home</a></li>
+                    <li><a href="posts.php">Posts</a></li>
+                    <li><a href="add_post.php">Add Post</a></li>
+                    <li><a href="categories.php">Categories</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav>
@@ -27,8 +30,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </header>
     <div class="container">
         <h1>Welcome, <?= htmlspecialchars($_SESSION['username']) ?></h1>
-        <a href="add_post.php">Add New Post</a><br>
-        <a href="../index.php">View Blog</a>
+        <ul>
+            <li><a href="posts.php">Manage Posts</a></li>
+            <li><a href="add_post.php">Add New Post</a></li>
+            <li><a href="categories.php">Manage Categories</a></li>
+            <li><a href="../index.php">View Blog</a></li>
+        </ul>
     </div>
     <footer>
         <p>Admin Panel &copy; 2024</p>
