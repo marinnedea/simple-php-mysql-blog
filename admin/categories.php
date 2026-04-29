@@ -70,6 +70,7 @@ $categories = $db->query("
                     <li><a href="admin.php">Home</a></li>
                     <li><a href="posts.php">Posts</a></li>
                     <li><a href="add_post.php">Add Post</a></li>
+                    <li><a href="users.php">Users</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav>

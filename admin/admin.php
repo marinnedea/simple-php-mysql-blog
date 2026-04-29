@@ -23,6 +23,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <li><a href="posts.php">Posts</a></li>
                     <li><a href="add_post.php">Add Post</a></li>
                     <li><a href="categories.php">Categories</a></li>
+                    <li><a href="users.php">Users</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav>
@@ -34,6 +35,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <li><a href="posts.php">Manage Posts</a></li>
             <li><a href="add_post.php">Add New Post</a></li>
             <li><a href="categories.php">Manage Categories</a></li>
+            <li><a href="users.php">Manage Users</a></li>
             <li><a href="../index.php">View Blog</a></li>
         </ul>
     </div>

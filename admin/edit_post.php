@@ -64,6 +64,7 @@ $categories = $db->query("SELECT id, name FROM categories");
                     <li><a href="admin.php">Home</a></li>
                     <li><a href="posts.php">Posts</a></li>
                     <li><a href="categories.php">Categories</a></li>
+                    <li><a href="users.php">Users</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav>
