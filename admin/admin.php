@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +20,13 @@
             <nav>
                 <ul>
                     <li><a href="admin.php">Home</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <div class="container">
-        <h1>Welcome to the Admin Panel</h1>
+        <h1>Welcome, <?= htmlspecialchars($_SESSION['username']) ?></h1>
         <a href="add_post.php">Add New Post</a><br>
         <a href="../index.php">View Blog</a>
     </div>

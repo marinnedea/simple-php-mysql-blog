@@ -1,3 +1,28 @@
+<?php
+session_start();
+require '../includes/config.php';
+
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $stmt = $db->prepare("SELECT id, username, password FROM users WHERE username = ?");
+    $stmt->bind_param('s', $_POST['username']);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+
+    if ($user && password_verify($_POST['password'], $user['password'])) {
+        session_regenerate_id(true);
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['token'] = bin2hex(random_bytes(32));
+        header('Location: admin.php');
+        exit;
+    }
+
+    $error = "Invalid username or password.";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +35,15 @@
             <div id="branding">
                 <h1>Admin Panel</h1>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="login.php">Login</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
     <div class="container">
+        <?php if ($error): ?>
+            <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+        <?php endif; ?>
         <form method="post">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="password" name="password"><br>
+            Username: <input type="text" name="username" required><br>
+            Password: <input type="password" name="password" required><br>
             <input type="submit" value="Login">
         </form>
     </div>

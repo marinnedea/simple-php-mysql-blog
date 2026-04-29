@@ -1,18 +1,27 @@
 <?php
 require 'includes/config.php';
 
-$id = $_GET['id'];
-$stmt = $db->prepare("SELECT * FROM posts WHERE id=?");
+if (!isset($_GET['id'])) {
+    header('Location: index.php');
+    exit;
+}
+
+$id = (int)$_GET['id'];
+$stmt = $db->prepare("SELECT title, content, date FROM posts WHERE id=?");
 $stmt->bind_param('i', $id);
 $stmt->execute();
-$result = $stmt->get_result();
-$post = $result->fetch_assoc();
+$post = $stmt->get_result()->fetch_assoc();
 $stmt->close();
+
+if (!$post) {
+    header('Location: index.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo htmlspecialchars($post['title']); ?></title>
+    <title><?= htmlspecialchars($post['title']) ?> - Blog</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -29,9 +38,9 @@ $stmt->close();
         </div>
     </header>
     <div class="container">
-        <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-        <p><?php echo htmlspecialchars($post['content']); ?></p>
-        <p>Posted on: <?php echo $post['date']; ?></p>
+        <h2><?= htmlspecialchars($post['title']) ?></h2>
+        <p><?= htmlspecialchars($post['content']) ?></p>
+        <p>Posted on: <?= $post['date'] ?></p>
         <a href="index.php">Back to Blog</a>
     </div>
     <footer>
