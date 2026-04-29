@@ -122,7 +122,7 @@ $categories = $db->query("
                                     <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="id" value="<?= $cat['id'] ?>">
-                                    <button type="submit">Delete</button>
+                                    <button type="submit" class="btn-danger">Delete</button>
                                 </form>
                             </td>
                         </tr>

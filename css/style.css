@@ -1,68 +1,160 @@
+/* ── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: #f0f2f5;
+    color: #1a1a2e;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-header {
-    background: #50b3a2;
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #e8491d 3px solid;
-}
-
-header a {
-    color: #ffffff;
+a {
+    color: #2e86ab;
     text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
 }
 
-header ul {
+a:hover {
+    text-decoration: underline;
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+header {
+    background: #1a1a2e;
+    color: #fff;
     padding: 0;
-    list-style: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-header li {
-    float: left;
-    display: inline;
-    padding: 0 20px 0 20px;
-}
-
-header #branding {
-    float: left;
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
 }
 
 header #branding h1 {
     margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #fff;
 }
 
-header nav {
-    float: right;
-    margin-top: 10px;
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 4px;
 }
 
-footer {
-    background: #50b3a2;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+header nav a {
+    color: #cdd3de;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
 }
 
+header nav a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ── Page content ─────────────────────────────────────────── */
+.container > h1,
+.container > h2 {
+    margin-top: 32px;
+}
+
+/* ── Cards / panels ───────────────────────────────────────── */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 24px;
+    margin-top: 24px;
+}
+
+/* ── Post listing (public) ────────────────────────────────── */
+.post-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    padding: 20px 24px;
+    margin-top: 16px;
+}
+
+.post-item h2 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+}
+
+.post-item .meta {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.post-item p {
+    margin: 0;
+    color: #444;
+}
+
+/* ── Category chips (public) ──────────────────────────────── */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 24px;
+}
+
+.categories a {
+    background: #e8f4f8;
+    color: #2e86ab;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: background 0.15s;
+}
+
+.categories a:hover {
+    background: #2e86ab;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ── Forms ────────────────────────────────────────────────── */
 form {
-    background: #ffffff;
-    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 24px;
     margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    color: #444;
 }
 
 form input[type="text"],
@@ -70,42 +162,101 @@ form input[type="password"],
 form textarea,
 form select {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #cccccc;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #fafafa;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    display: block;
 }
 
-form input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background: #50b3a2;
-    color: #ffffff;
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: #2e86ab;
+    box-shadow: 0 0 0 3px rgba(46,134,171,0.15);
+    background: #fff;
+}
+
+form textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+form input[type="submit"],
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #2e86ab;
+    color: #fff;
     border: none;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
 }
 
-form input[type="submit"]:hover {
-    background: #45a089;
+form input[type="submit"]:hover,
+.btn:hover {
+    background: #236f8e;
+    text-decoration: none;
 }
 
+form input[type="submit"]:active,
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ── Alerts / messages ────────────────────────────────────── */
+.message {
+    padding: 10px 16px;
+    border-radius: 7px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+}
+
+.message-success { background: #d1fae5; color: #065f46; }
+.message-error   { background: #fee2e2; color: #991b1b; }
+
+p[style*="color: red"] {
+    background: #fee2e2;
+    color: #991b1b !important;
+    padding: 10px 16px;
+    border-radius: 7px;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
 table th,
 table td {
     text-align: left;
-    padding: 10px 14px;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
 }
 
 table th {
-    background: #50b3a2;
-    color: #ffffff;
+    background: #1a1a2e;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 table tr:last-child td {
@@ -113,30 +264,60 @@ table tr:last-child td {
 }
 
 table tr:hover td {
-    background: #f0faf8;
+    background: #f8fafc;
 }
 
+/* Inline forms inside table cells */
 table form {
     background: none;
     padding: 0;
     margin: 0;
     box-shadow: none;
+    border-radius: 0;
+    display: inline;
 }
 
-table form input[type="text"] {
+table form input[type="text"],
+table form input[type="password"] {
     width: auto;
-    padding: 4px 8px;
+    padding: 6px 10px;
     margin: 0;
+    font-size: 0.875rem;
+    display: inline;
 }
 
-table button {
-    padding: 4px 10px;
-    background: #50b3a2;
-    color: #ffffff;
+table button,
+table input[type="submit"] {
+    padding: 5px 12px;
+    background: #2e86ab;
+    color: #fff;
     border: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.15s;
 }
 
-table button:hover {
-    background: #45a089;
+table button:hover,
+table input[type="submit"]:hover {
+    background: #236f8e;
+}
+
+table button.btn-danger {
+    background: #e53e3e;
+}
+
+table button.btn-danger:hover {
+    background: #c53030;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+footer {
+    background: #1a1a2e;
+    color: #8892a4;
+    text-align: center;
+    padding: 16px 0;
+    margin-top: 48px;
+    font-size: 0.82rem;
 }

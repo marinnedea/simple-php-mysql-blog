@@ -86,7 +86,7 @@ $posts = $db->query("
                                       onsubmit="return confirm('Delete this post?')">
                                     <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                                     <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                                    <button type="submit">Delete</button>
+                                    <button type="submit" class="btn-danger">Delete</button>
                                 </form>
                             </td>
                         </tr>

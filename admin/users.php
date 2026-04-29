@@ -145,7 +145,7 @@ $users = $db->query("SELECT id, username FROM users ORDER BY username");
                                         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                                         <input type="hidden" name="action" value="delete">
                                         <input type="hidden" name="id" value="<?= $user['id'] ?>">
-                                        <button type="submit">Delete</button>
+                                        <button type="submit" class="btn-danger">Delete</button>
                                     </form>
                                 <?php else: ?>
                                     —
