@@ -312,6 +312,110 @@ table button.btn-danger:hover {
     background: #c53030;
 }
 
+/* ── Featured images ──────────────────────────────────────── */
+.featured-thumb {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.featured-hero {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 24px 0 20px;
+}
+
+.featured-image-preview {
+    margin-bottom: 12px;
+}
+
+.featured-image-preview img {
+    max-width: 240px;
+    max-height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* ── Site branding (logo / subtitle) ─────────────────────── */
+a.site-title {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    color: #8892a4;
+    margin-top: 2px;
+}
+
+.site-logo {
+    max-height: 40px;
+    display: block;
+}
+
+/* ── Post content (rendered HTML from TinyMCE) ────────────── */
+.post-content {
+    margin-top: 24px;
+    line-height: 1.8;
+}
+
+.post-content h2, .post-content h3, .post-content h4 {
+    margin-top: 28px;
+}
+
+.post-content img {
+    max-width: 100%;
+    border-radius: 6px;
+    height: auto;
+}
+
+.post-content a {
+    color: #2e86ab;
+}
+
+.post-content blockquote {
+    border-left: 4px solid #2e86ab;
+    margin: 16px 0;
+    padding: 8px 16px;
+    background: #f0f8fc;
+    border-radius: 0 6px 6px 0;
+    color: #555;
+}
+
+.post-content pre {
+    background: #1a1a2e;
+    color: #e2e8f0;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.88rem;
+}
+
+.post-content table {
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+}
+
+/* ── TinyMCE body styles (loaded as content_css) ─────────── */
+.tinymce-body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #1a1a2e;
+    padding: 12px;
+}
+
 /* ── Footer ───────────────────────────────────────────────── */
 footer {
     background: #1a1a2e;

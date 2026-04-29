@@ -15,6 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $id = (int)($_POST['id'] ?? 0);
     if ($id) {
+        // Fetch featured image before deleting so we can remove the file
+        $img_stmt = $db->prepare("SELECT featured_image FROM posts WHERE id=?");
+        $img_stmt->bind_param('i', $id);
+        $img_stmt->execute();
+        $img = $img_stmt->get_result()->fetch_assoc();
+        $img_stmt->close();
+        if (!empty($img['featured_image'])) {
+            @unlink(dirname(__DIR__) . '/uploads/' . $img['featured_image']);
+        }
+
         $stmt = $db->prepare("DELETE FROM posts WHERE id=?");
         $stmt->bind_param('i', $id);
         $stmt->execute();

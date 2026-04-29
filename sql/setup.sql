@@ -9,6 +9,7 @@ CREATE TABLE posts (
     content TEXT NOT NULL,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     category_id INT,
+    featured_image VARCHAR(255) NULL,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
