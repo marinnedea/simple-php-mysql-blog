@@ -22,6 +22,7 @@ $page_title = $post['title'];
 require 'includes/header.php';
 ?>
     <div class="container">
+        <a href="index.php" class="btn-back">&larr; Back to Blog</a>
         <?php if ($post['featured_image']): ?>
             <img class="featured-hero" src="uploads/<?= htmlspecialchars($post['featured_image']) ?>"
                  alt="<?= htmlspecialchars($post['title']) ?>">
@@ -40,7 +41,6 @@ require 'includes/header.php';
             <?= $post['content'] ?>
         </div>
 
-        <a href="index.php">&larr; Back to Blog</a>
     </div>
 
 <?php require 'includes/footer.php'; ?>

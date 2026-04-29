@@ -27,6 +27,7 @@ $page_title = $category['name'];
 require 'includes/header.php';
 ?>
     <div class="container">
+        <a href="index.php" class="btn-back">&larr; All Posts</a>
         <h1><?= htmlspecialchars($category['name']) ?></h1>
         <?php if ($result->num_rows === 0): ?>
             <p>No posts in this category yet.</p>
@@ -45,7 +46,6 @@ require 'includes/header.php';
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>
-        <a href="index.php">&larr; All Posts</a>
     </div>
 
 <?php require 'includes/footer.php'; ?>

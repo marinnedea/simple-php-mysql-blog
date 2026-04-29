@@ -98,6 +98,25 @@ header nav a.nav-admin:hover {
     margin-top: 32px;
 }
 
+/* ── Back button ──────────────────────────────────────────── */
+a.btn-back {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 7px 16px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+a.btn-back:hover {
+    background: #2e3a5a;
+    text-decoration: none;
+}
+
 /* ── Cards / panels ───────────────────────────────────────── */
 .card {
     background: #fff;
