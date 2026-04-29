@@ -1,6 +1,7 @@
 <?php
 // Shared public header.
 // $page_title — optional, prepended to SITE_TITLE in the <title> tag.
+if (session_status() === PHP_SESSION_NONE) session_start();
 $title = isset($page_title) ? htmlspecialchars($page_title) . ' - ' . SITE_TITLE : SITE_TITLE;
 ?>
 <!DOCTYPE html>
@@ -30,6 +31,9 @@ $title = isset($page_title) ? htmlspecialchars($page_title) . ' - ' . SITE_TITLE
             <nav>
                 <ul>
                     <li><a href="index.php">Home</a></li>
+                    <?php if (!empty($_SESSION['loggedin'])): ?>
+                        <li><a href="admin/admin.php" class="nav-admin">Admin Area</a></li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </div>

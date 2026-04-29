@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Password: <input type="password" name="password" required><br>
             <input type="submit" value="Login">
         </form>
+        <p><a href="../index.php">&larr; Back to Blog</a></p>
     </div>
     <footer>
         <p>Admin Panel &copy; 2024</p>
