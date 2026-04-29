@@ -14,9 +14,8 @@
     </form>
 
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $password = $_POST["password"];
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         echo "<p>Hashed Password: <strong>" . htmlspecialchars($hashed_password) . "</strong></p>";
     }
     ?>
