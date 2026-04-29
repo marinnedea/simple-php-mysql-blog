@@ -10,6 +10,13 @@ body {
     padding: 0;
     background: #f0f2f5;
     color: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
 }
 
 a {
@@ -431,6 +438,5 @@ footer {
     color: #8892a4;
     text-align: center;
     padding: 16px 0;
-    margin-top: 48px;
     font-size: 0.82rem;
 }
