@@ -51,8 +51,9 @@ define('SHOW_CATEGORY_CHIPS', true);
 
 
 // ============================================================
-// TinyMCE — get a free API key at https://www.tiny.cloud/
-// Replace 'no-api-key' below with your key to remove the
-// "This domain is not registered" notification.
+// TinyMCE — set via environment variable TINYMCE_API_KEY.
+// Nginx PHP-FPM pool:  env[TINYMCE_API_KEY] = your-key-here
+// Apache VirtualHost:  SetEnv TINYMCE_API_KEY your-key-here
+// Falls back to 'no-api-key' if the variable is not set.
 // ============================================================
-define('TINYMCE_API_KEY', 'no-api-key');
+define('TINYMCE_API_KEY', getenv('TINYMCE_API_KEY') ?: 'no-api-key');
